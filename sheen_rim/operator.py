@@ -7,8 +7,6 @@ class SHEEN_RIM_OT_button(bpy.types.Operator):
     bl_description = "Add sheen rim to selected objects."
 
     def execute(self, context):
-
-        # ---- Check selection ----
         selected = context.selected_objects
 
         if not selected:
@@ -48,8 +46,6 @@ class SHEEN_RIM_OT_button(bpy.types.Operator):
             h = scene.sheen_rim_hue
             s = scene.sheen_rim_saturation
             v = scene.sheen_rim_value
-
-            r, g, b = colorsys.hsv_to_rgb(h, s, v)
 
             sheen_val = scene.sheen_rim_sheen
             roughness_val = scene.sheen_rim_roughness

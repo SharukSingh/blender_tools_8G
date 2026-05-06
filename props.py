@@ -1,4 +1,13 @@
 import bpy
+import colorsys
+
+def update_preview(self, context):
+    r, g, b = colorsys.hsv_to_rgb(
+        self.sheen_rim_hue,
+        self.sheen_rim_saturation,
+        self.sheen_rim_value
+    )
+    self.sheen_rim_preview = (r, g, b)
 
 def register_properties():
     bpy.types.Scene.sheen_rim_sheen = bpy.props.FloatProperty(
@@ -19,29 +28,32 @@ def register_properties():
         name="Hue",
         default=0.0,
         min=0.0,
-        max=1.0
+        max=1.0,
+        update=update_preview
     )
 
     bpy.types.Scene.sheen_rim_saturation = bpy.props.FloatProperty(
         name="Saturation",
         default=0.0,
         min=0.0,
-        max=1.0
+        max=1.0,
+        update=update_preview
     )
 
     bpy.types.Scene.sheen_rim_value = bpy.props.FloatProperty(
         name="Value",
         default=5,
-        min=0.0
+        min=0.0,
+        update=update_preview
     )
 
     bpy.types.Scene.sheen_rim_preview = bpy.props.FloatVectorProperty(
-        name="Preview",
+	    name="Preview",
         subtype='COLOR',
         size=3,
         min=0.0,
         max=1.0
-    )
+	)
 
 
 def unregister_properties():

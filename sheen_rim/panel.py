@@ -1,4 +1,5 @@
 import bpy
+import colorsys
 
 class SHEEN_RIM_PT_panel(bpy.types.Panel):
     bl_label = "Shader Helpers"
@@ -16,12 +17,12 @@ class SHEEN_RIM_PT_panel(bpy.types.Panel):
         layout.prop(scene, "sheen_rim_sheen")
         layout.prop(scene, "sheen_rim_roughness")
         
-        layout.label(text="Tint (HSV)")
+        layout.label(text="Tint (HSV) 04")
         row = layout.row(align=True)
         row.prop(scene, "sheen_rim_hue", text="H")
         row.prop(scene, "sheen_rim_saturation", text="S")
         row.prop(scene, "sheen_rim_value", text="V")
-        
+
         row = layout.row()
         row.enabled = False
         row.prop(scene, "sheen_rim_preview", text="Sheen color")
