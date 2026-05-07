@@ -47,6 +47,8 @@ class SHEEN_RIM_OT_button(bpy.types.Operator):
             s = scene.sheen_rim_saturation
             v = scene.sheen_rim_value
 
+            r, g, b = colorsys.hsv_to_rgb(h, s, v)
+
             sheen_val = scene.sheen_rim_sheen
             roughness_val = scene.sheen_rim_roughness
             tint = scene.sheen_rim_value

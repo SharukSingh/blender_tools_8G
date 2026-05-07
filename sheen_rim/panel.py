@@ -17,7 +17,7 @@ class SHEEN_RIM_PT_panel(bpy.types.Panel):
         layout.prop(scene, "sheen_rim_sheen")
         layout.prop(scene, "sheen_rim_roughness")
         
-        layout.label(text="Tint (HSV) 04")
+        layout.label(text="Tint (HSV)")
         row = layout.row(align=True)
         row.prop(scene, "sheen_rim_hue", text="H")
         row.prop(scene, "sheen_rim_saturation", text="S")
